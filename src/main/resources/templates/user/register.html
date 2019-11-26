@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type"  content="text/html; charset=UTF-8" />
+    <title>Health Checker 1.0</title>
+    <link rel="stylesheet" th:href="@{/css/base.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+<div th:replace="layout/header::header"></div>
+<div class="container">
+    <div class="page-header">
+        <h1>Register Page</h1>
+    </div>
+
+    <form method="POST" th:action="@{/user/register}">
+        <table class="table">
+            <tr>
+                <th style="padding:13px 0 0 15px;">Name</th>
+                <td><input name="name" type="text" class="col-md-1 form-control input-sm" style="width: 50%"/></td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">E-Mail</th>
+                <td><input name="email" type="text" class="col-md-1 form-control input-sm" style="width: 50%"/></td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">Password</th>
+                <td><input name="password" type="password" class="col-md-1 form-control input-sm" style="width: 50%"/></td>
+            </tr>
+        </table>
+        <div class="pull-left">
+            <input type="submit" class="btn btn-primary" value="Register" />
+        </div>
+    </form>
+
+</div>
+<div th:replace="layout/footer::footer"></div>
+</body>
+</html>

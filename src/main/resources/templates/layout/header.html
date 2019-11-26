@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
 <!--header-->
 <div th:fragment="header">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -20,13 +20,15 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/survey/check">CHECK</a>
+                        <a sec:authorize="isAuthenticated()" th:href="@{/survey/check}">CHECK</a>
                     </li>
                     <li>
-                        <a href="/user/info">HISTORY</a>
+                        <a sec:authorize="isAuthenticated()" th:href="@{/user/info}">MY INFO</a>
+                        <a sec:authorize="isAnonymous()" th:href="@{/user/register}">REGISTER</a>
                     </li>
                     <li>
-                        <a href="/user/login">LOGIN</a>
+                        <a sec:authorize="isAnonymous()" th:href="@{/user/login}">LOGIN</a>
+                        <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">LOGOUT</a>
                     </li>
                 </ul>
             </div>

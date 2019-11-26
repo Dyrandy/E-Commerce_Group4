@@ -10,12 +10,12 @@
 <div th:replace="layout/header::header"></div>
 <div class="container">
     <div class="page-header">
-        <h1>Login Page</h1>
+        <h1>로그인</h1>
     </div>
 
-    <form method="POST" action="./">
-        Username: <input type="text" />
-        Password: <input type="password" />
+    <form method="POST" th:action="@{/user/login}">
+        Username: <input type="text" name="username"/>
+        Password: <input type="password" name="password"/>
         <input type="submit" value="login"/><br>
     </form>
 

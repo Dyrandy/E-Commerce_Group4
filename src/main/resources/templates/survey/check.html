@@ -10,9 +10,56 @@
 <div th:replace="layout/header::header"></div>
 <div class="container">
     <div class="page-header">
-        <h1>Survey Page</h1>
+        <h1>자가 진단</h1>
     </div>
 
+    <form method="POST" th:action="@{/survey/check}">
+        <table class="table">
+            <tr>
+                <th style="padding:13px 0 0 15px;">질문</th>
+                <th style="padding:13px 0 0 15px;" colspan="4">선택지</th>
+
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">당신의 성별은?</th>
+                <td colspan="2"><input type="radio" name="gender" value="M"> 남자</td>
+                <td colspan="2"><input type="radio" name="gender" value="F"> 여자</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">어디가 아프신가요?</th>
+                <div>
+                    <td colspan="1"><input type="radio" name="part" value="head"> 머리</td>
+                    <td colspan="1"><input type="radio" name="part" value="chest"> 가슴</td>
+                    <td colspan="1"><input type="radio" name="part" value="respiratory"> 호흡기</td>
+                    <td colspan="1"><input type="radio" name="part" value="stomach"> 배</td>
+                </div>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">증상이 어떻게 되나요?</th>
+                <td colspan="1"><input type="radio" name="how" value="poke"> 찌르듯이 아픔</td>
+                <td colspan="1"><input type="radio" name="how" value="pressure"> 누르듯이 아픔</td>
+                <td colspan="1"><input type="radio" name="how" value="bitter"> 쓰라림</td>
+                <td colspan="1"><input type="radio" name="how" value="other"> 그 외</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">증상이 얼마나 오래 되었나요?</th>
+                <td colspan="1"><input type="radio" name="duration" value="less_week"> 일주일 미만</td>
+                <td colspan="1"><input type="radio" name="duration" value="less_month"> 한달 미만</td>
+                <td colspan="1"><input type="radio" name="duration" value="less_six_month"> 여섯달 미만</td>
+                <td colspan="1"><input type="radio" name="duration" value="more_six_month"> 여섯달 이상</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">하루에 얼마나 자주 아픈가요?</th>
+                <td colspan="1"><input type="radio" name="frequency" value="less_twice"> 2번 미만</td>
+                <td colspan="1"><input type="radio" name="frequency" value="less_four"> 4번 미만</td>
+                <td colspan="1"><input type="radio" name="frequency" value="always"> 항상</td>
+                <td colspan="1"><input type="radio" name="frequency" value="dont_know"> 모른다</td>
+            </tr>
+        </table>
+        <div class="pull-left">
+            <input type="submit" class="btn btn-primary" value="Submit" />
+        </div>
+    </form>
 
 </div>
 <div th:replace="layout/footer::footer"></div>
