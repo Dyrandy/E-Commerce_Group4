@@ -20,15 +20,15 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a sec:authorize="isAuthenticated()" th:href="@{/survey/check}">CHECK</a>
+                        <a sec:authorize="isAuthenticated()" th:href="@{/survey/check}">진단하기</a>
                     </li>
                     <li>
-                        <a sec:authorize="isAuthenticated()" th:href="@{/user/info}">MY INFO</a>
-                        <a sec:authorize="isAnonymous()" th:href="@{/user/register}">REGISTER</a>
+                        <a sec:authorize="isAuthenticated()" th:href="@{/user/info}">내 정보</a>
+                        <a sec:authorize="isAnonymous()" th:href="@{/user/register}">회원가입</a>
                     </li>
                     <li>
-                        <a sec:authorize="isAnonymous()" th:href="@{/user/login}">LOGIN</a>
-                        <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">LOGOUT</a>
+                        <a sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>
+                        <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>
                     </li>
                 </ul>
             </div>

@@ -10,26 +10,26 @@
 <div th:replace="layout/header::header"></div>
 <div class="container">
     <div class="page-header">
-        <h1>Register Page</h1>
+        <h1>회원가입</h1>
     </div>
 
     <form method="POST" th:action="@{/user/register}">
         <table class="table">
             <tr>
-                <th style="padding:13px 0 0 15px;">Name</th>
+                <th style="padding:13px 0 0 15px;">이름</th>
                 <td><input name="name" type="text" class="col-md-1 form-control input-sm" style="width: 50%"/></td>
             </tr>
             <tr>
-                <th style="padding:13px 0 0 15px;">E-Mail</th>
+                <th style="padding:13px 0 0 15px;">이메일</th>
                 <td><input name="email" type="text" class="col-md-1 form-control input-sm" style="width: 50%"/></td>
             </tr>
             <tr>
-                <th style="padding:13px 0 0 15px;">Password</th>
+                <th style="padding:13px 0 0 15px;">비밀번호</th>
                 <td><input name="password" type="password" class="col-md-1 form-control input-sm" style="width: 50%"/></td>
             </tr>
         </table>
         <div class="pull-left">
-            <input type="submit" class="btn btn-primary" value="Register" />
+            <input type="submit" class="btn btn-primary" value="회원가입" />
         </div>
     </form>
 

@@ -6,7 +6,8 @@
     <link rel="stylesheet" th:href="@{/css/base.css}" />
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
 </head>
-<body>
+<body onload="hideFunc()">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <div th:replace="layout/header::header"></div>
 <div class="container">
     <div class="page-header">
@@ -18,21 +19,49 @@
             <tr>
                 <th style="padding:13px 0 0 15px;">질문</th>
                 <th style="padding:13px 0 0 15px;" colspan="4">선택지</th>
-
             </tr>
             <tr>
                 <th style="padding:13px 0 0 15px;">당신의 성별은?</th>
-                <td colspan="2"><input type="radio" name="gender" value="M"> 남자</td>
-                <td colspan="2"><input type="radio" name="gender" value="F"> 여자</td>
+                <td colspan="1"><input type="radio" name="gender" value="M"> 남자</td>
+                <td colspan="3"><input type="radio" name="gender" value="F"> 여자</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">당신의 나이는?</th>
+                <td colspan="1"><input type="radio" name="age" value="less_14"> 14살 미만</td>
+                <td colspan="1"><input type="radio" name="age" value="between_14_19"> 14~19살 </td>
+                <td colspan="2"><input type="radio" name="age" value="above_19"> 19살 이상</td>
             </tr>
             <tr>
                 <th style="padding:13px 0 0 15px;">어디가 아프신가요?</th>
                 <div>
-                    <td colspan="1"><input type="radio" name="part" value="head"> 머리</td>
-                    <td colspan="1"><input type="radio" name="part" value="chest"> 가슴</td>
-                    <td colspan="1"><input type="radio" name="part" value="respiratory"> 호흡기</td>
-                    <td colspan="1"><input type="radio" name="part" value="stomach"> 배</td>
+                    <td colspan="1"><input type="radio" name="part" value="head" id="part_head"> 머리</td>
+                    <td colspan="1"><input type="radio" name="part" value="chest" id="part_chest"> 가슴</td>
+                    <td colspan="1"><input type="radio" name="part" value="resp" id="part_resp"> 호흡기</td>
+                    <td colspan="1"><input type="radio" name="part" value="stomach" id="part_stomach"> 배</td>
                 </div>
+            </tr>
+            <tr id="part_head_show">
+                <th style="padding:13px 0 0 15px;">머리 어디가 아픈가요?</th>
+                <td colspan="1"><input type="radio" name="head_where" value="head_front"> 머리 앞</td>
+                <td colspan="1"><input type="radio" name="head_where" value="head_back"> 머리 뒤</td>
+                <td colspan="2"><input type="radio" name="head_where" value="head_side"> 머리 옆</td>
+            </tr>
+            <tr id="part_chest_show">
+                <th style="padding:13px 0 0 15px;">가슴 어디가 아픈가요?</th>
+                <td colspan="1"><input type="radio" name="chest_where" value="chest_front"> 가슴 앞</td>
+                <td colspan="1"><input type="radio" name="chest_where" value="chest_back"> 가슴 뒤</td>
+                <td colspan="1"><input type="radio" name="chest_where" value="chest_left"> 왼쪽 가슴</td>
+                <td colspan="1"><input type="radio" name="chest_where" value="chest_right"> 오른쪽 가슴</td>
+            </tr>
+            <tr id="part_resp_show">
+                <th style="padding:13px 0 0 15px;">호흡기 어디가 아픈가요?</th>
+                <td colspan="1"><input type="radio" name="resp_where" value="resp_nose"> 코</td>
+                <td colspan="3"><input type="radio" name="resp_where" value="resp_neck"> 목</td>
+            </tr>
+            <tr id="part_stomach_show">
+                <th style="padding:13px 0 0 15px;">배 어디가 아픈가요?</th>
+                <td colspan="1"><input type="radio" name="stomach_where" value="head_front"> 윗 배</td>
+                <td colspan="3"><input type="radio" name="stomach_where" value="head_back"> 아랫 배</td>
             </tr>
             <tr>
                 <th style="padding:13px 0 0 15px;">증상이 어떻게 되나요?</th>
@@ -61,6 +90,44 @@
         </div>
     </form>
 
+    <script>
+        $(document).ready(function(){
+            $("#part_head").click(function(){
+                $("#part_chest_show").hide();
+                $("#part_resp_show").hide();
+                $("#part_stomach_show").hide();
+                $("#part_head_show").show(1000);
+            });
+
+            $("#part_chest").click(function(){
+                $("#part_resp_show").hide();
+                $("#part_stomach_show").hide();
+                $("#part_head_show").hide();
+                $("#part_chest_show").show(1000);
+            });
+
+            $("#part_resp").click(function(){
+                $("#part_chest_show").hide();
+                $("#part_stomach_show").hide();
+                $("#part_head_show").hide();
+                $("#part_resp_show").show(1000);
+            });
+
+            $("#part_stomach").click(function(){
+                $("#part_chest_show").hide();
+                $("#part_resp_show").hide();
+                $("#part_head_show").hide();
+                $("#part_stomach_show").show(1000);
+            });
+        });
+
+        function hideFunc(){
+            $("#part_head_show").hide();
+            $("#part_chest_show").hide();
+            $("#part_resp_show").hide();
+            $("#part_stomach_show").hide();
+        }
+    </script>
 </div>
 <div th:replace="layout/footer::footer"></div>
 </body>

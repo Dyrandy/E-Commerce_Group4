@@ -9,10 +9,14 @@
 <body>
 <div th:replace="layout/header::header"></div>
 <div class="container">
+    <div sec:authorize="isAuthenticated()"><span sec:authentication="name"></span> 님 환영합니다.</div>
     <div class="page-header">
-        <h1>질병 자가 진단 서비스</h1>
+        <h1>자가 진단 서비스</h1>
     </div>
-    <div sec:authorize="isAuthenticated()"><span sec:authentication="name"></span>님 환영합니다.</div>
+    <div class="page-information">
+        <h3>몸이 아프지만 병원 가기엔 시간이 아까우신가요?</h3>
+        <h3>회원 가입하고 간편하게 클릭 몇 번 만으로 진단을 받으세요!</h3>
+    </div>
 
 
 </div>
