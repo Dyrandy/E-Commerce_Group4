@@ -1,4 +1,4 @@
-package web.commerce.domain.entity;
+package web.commerce.domain;
 
 
 import lombok.*;
@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-@Table(name = "member")
-public class MemberEntity implements Serializable {
+@Table(name="User")
+public class Member implements Serializable {
     @Id
     @Column
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -20,16 +20,16 @@ public class MemberEntity implements Serializable {
     @Column
     private String name;
 
-    @Column//(length = 20, nullable = false)
+    @Column
     private String email;
 
-    @Column//(length = 100, nullable = false)
+    @Column
     private String password;
 
 
 
     @Builder
-    public MemberEntity(Long idx, String name, String email, String password) {
+    public Member(Long idx, String name, String email, String password) {
         this.idx = idx;
         this.name = name;
         this.email = email;

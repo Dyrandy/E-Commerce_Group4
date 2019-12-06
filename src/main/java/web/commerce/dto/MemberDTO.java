@@ -1,6 +1,6 @@
 package web.commerce.dto;
 
-import web.commerce.domain.entity.MemberEntity;
+import web.commerce.domain.Member;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -17,8 +17,8 @@ public class MemberDTO {
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
 
-    public MemberEntity toEntity(){
-        return MemberEntity.builder()
+    public Member toEntity(){
+        return Member.builder()
                 .idx(idx)
                 .name(name)
                 .email(email)

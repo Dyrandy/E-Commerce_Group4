@@ -2,7 +2,7 @@ package web.commerce.service;
 
 import web.commerce.domain.repository.MemberRepository;
 import web.commerce.dto.MemberDTO;
-import web.commerce.domain.entity.MemberEntity;
+import web.commerce.domain.Member;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -34,8 +34,8 @@ public class MemberService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException{
-        Optional<MemberEntity> userEntityWrapper = memberRepository.findByEmail(email);
-        MemberEntity userEntity = userEntityWrapper.get();
+        Optional<Member> userEntityWrapper = memberRepository.findByEmail(email);
+        Member userEntity = userEntityWrapper.get();
 
         List<GrantedAuthority> authorities = new ArrayList<>();
 

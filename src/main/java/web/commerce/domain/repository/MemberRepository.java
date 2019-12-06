@@ -1,10 +1,10 @@
 package web.commerce.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import web.commerce.domain.entity.MemberEntity;
+import web.commerce.domain.Member;
 
 import java.util.Optional;
 
-public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
-    Optional<MemberEntity> findByEmail(String email);
+public interface MemberRepository extends JpaRepository<Member, Long> {
+    Optional<Member> findByEmail(String email);
 }
