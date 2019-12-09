@@ -42,15 +42,15 @@ public class Survey implements Serializable{
     @Column
     private String Result;
 
-    @Column(name="User")
-    private Member Member;
+    @OneToOne(fetch = FetchType.LAZY)
+    private Member member;
 
     @Column
     private String Disease;
 
 
     @Builder
-    public Survey(String P1, String P2, String P3, String P4, String P5, String P6, String P7, String P8, String Result, Member Member, String Disease){
+    public Survey(String P1, String P2, String P3, String P4, String P5, String P6, String P7, String P8, String Result, Member member, String Disease){
         this.P1 = P1;
         this.P2 = P2;
         this.P3 = P3;
@@ -60,7 +60,7 @@ public class Survey implements Serializable{
         this.P7 = P7;
         this.P8 = P8;
         this.Result = Result;
-        this.Member = Member;
+        this.member = member;
         this.Disease = Disease;
     }
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type"  content="text/html; charset=UTF-8" />
+    <title>Health Checker 1.0</title>
+    <link rel="stylesheet" th:href="@{/css/base.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+<div th:replace="layout/header::header"></div>
+<div class="container">
+    <div class="page-header">
+        <h1>경고!</h1>
+    </div>
+    <div class="page-information">
+        <h3>자가 진단 서비스는 확률만 제공합니다.</h3>
+        <h3>자가 진단 서비스에는 오차가 존재 할 수 있으며, 모든 결과가 맞지 않음을 명심해주세요!</h3>
+        <h3>결과에 궁금한 점이 있다면 언제든지 문의 주세요!</h3>
+    </div>
+    <div class="pull-right">
+        <button type="button" class="btn btn-primary" id="survey">진단하기!</button>
+    </div>
+
+</div>
+<div th:replace="layout/footer::footer"></div>
+</body>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script>
+    $('#survey').click(function() {
+        location.href = "/survey/check";
+    })
+</script>
+</html>

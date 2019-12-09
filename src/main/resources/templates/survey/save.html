@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type"  content="text/html; charset=UTF-8" />
+    <title>Health Checker 1.0</title>
+    <link rel="stylesheet" th:href="@{/css/base.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body onload="location.href='/survey/result'">
+<div th:replace="layout/header::header"></div>
+<div class="container">
+
+    <form method="POST" th:action="@{/survey/result}" name="gotoResult">
+        <input  type="text" name="name" th:value="${userName}"/>
+        <input type="submit" />
+    </form>
+
+
+</div>
+<div th:replace="layout/footer::footer"></div>
+</body>
+<script>
+    window.onload = function(){
+        document.forms['gotoResult'].submit();
+    }
+</script>
+</html>

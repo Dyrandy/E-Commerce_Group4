@@ -39,7 +39,7 @@ public class MemberService implements UserDetailsService {
 
         List<GrantedAuthority> authorities = new ArrayList<>();
 
-        if(("admin@example.com").equals(email)){
+        if(("admin@admin.com").equals(email)){
             authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
         }
         else{

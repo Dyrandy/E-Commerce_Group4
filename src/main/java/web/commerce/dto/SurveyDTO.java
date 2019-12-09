@@ -1,6 +1,7 @@
 package web.commerce.dto;
 
 
+import org.apache.logging.log4j.message.ReusableMessage;
 import web.commerce.domain.Member;
 import web.commerce.domain.Survey;
 import lombok.*;
@@ -16,7 +17,7 @@ public class SurveyDTO {
     private String P7;
     private String P8;
     private String Result;
-    private Member Member;
+    private Member member;
     private String Disease;
 
     public Survey toEntity(){
@@ -30,13 +31,21 @@ public class SurveyDTO {
                 .P7(P7)
                 .P8(P8)
                 .Result(Result)
-                .Member(Member)
+                .member(member)
                 .Disease(Disease)
                 .build();
     }
 
+    public void setDisease(String Disease){
+        this.Disease = Disease;
+    }
+
+    public void setResult(String Result){
+        this.Result = Result;
+    }
+
     @Builder
-    public SurveyDTO(String P1, String P2, String P3, String P4, String P5, String P6, String P7, String P8, String Result, Member Member, String Disease){
+    public SurveyDTO(String P1, String P2, String P3, String P4, String P5, String P6, String P7, String P8, String Result, Member member, String Disease){
         this.P1 = P1;
         this.P2 = P2;
         this.P3 = P3;
@@ -46,7 +55,7 @@ public class SurveyDTO {
         this.P7 = P7;
         this.P8 = P8;
         this.Result = Result;
-        this.Member = Member;
+        this.member = member;
         this.Disease = Disease;
     }
 }

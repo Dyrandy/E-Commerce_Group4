@@ -6,15 +6,14 @@
     <link rel="stylesheet" th:href="@{/css/base.css}" />
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
 </head>
-<body onload="hideFunc()">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
 <div th:replace="layout/header::header"></div>
 <div class="container">
     <div class="page-header">
         <h1>자가 진단</h1>
     </div>
 
-    <form method="POST" th:action="@{/survey/check}">
+    <form method="POST" th:action="@{/survey/save}">
         <div class="page-information">
             <h3>흉통</h3>
         </div>
@@ -25,54 +24,54 @@
             </tr>
             <tr>
                 <th style="padding:13px 0 0 15px;">1. 흉통 위치</th>
-                <td colspan="1"><input type="radio" name="part" value="1" id="1"> 앞 가슴</td>
-                <td colspan="1"><input type="radio" name="part" value="2" id="2"> 명치 부근</td>
-                <td colspan="1"><input type="radio" name="part" value="3" id="3"> 가슴 근육/뼈</td>
-                <td colspan="1"><input type="radio" name="part" value="4" id="4"> 왼쪽 가슴</td>
+                <td colspan="1"><input type="radio" name="P1" value="1"> 앞 가슴</td>
+                <td colspan="1"><input type="radio" name="P1" value="2"> 명치 부근</td>
+                <td colspan="1"><input type="radio" name="P1" value="3"> 가슴 근육/뼈</td>
+                <td colspan="1"><input type="radio" name="P1" value="4"> 왼쪽 가슴</td>
             </tr>
             <tr>
                 <th style="padding:13px 0 0 15px;">2. 통증의 형태</th>
-                <td colspan="1"><input type="radio" name="head_where" value="1"> 묵직한 통증</td>
-                <td colspan="1"><input type="radio" name="head_where" value="2"> 타는 듯한 통증</td>
-                <td colspan="1"><input type="radio" name="head_where" value="3"> 찌르는 듯한 통증</td>
-                <td colspan="1"><input type="radio" name="head_where" value="4"> 기타</td>
+                <td colspan="1"><input type="radio" name="P2" value="1"> 묵직한 통증</td>
+                <td colspan="1"><input type="radio" name="P2" value="2"> 타는 듯한 통증</td>
+                <td colspan="1"><input type="radio" name="P2" value="3"> 찌르는 듯한 통증</td>
+                <td colspan="1"><input type="radio" name="P2" value="4"> 기타</td>
             </tr>
             <tr>
                 <th style="padding:13px 0 0 15px;">3. 통증 지속기간</th>
-                <td colspan="1"><input type="radio" name="chest_where" value="1"> 가슴 앞</td>
-                <td colspan="1"><input type="radio" name="chest_where" value="2"> 가슴 뒤</td>
-                <td colspan="1"><input type="radio" name="chest_where" value="3"> 왼쪽 가슴</td>
-                <td colspan="1"><input type="radio" name="chest_where" value="4"> 오른쪽 가슴</td>
+                <td colspan="1"><input type="radio" name="P3" value="1"> 금방 사라짐(3분 이내)</td>
+                <td colspan="1"><input type="radio" name="P3" value="2"> 10분 이내 지속</td>
+                <td colspan="1"><input type="radio" name="P3" value="3"> 30분 이내 지속</td>
+                <td colspan="1"><input type="radio" name="P3" value="4"> 호전되지 않음</td>
             </tr>
             <tr>
                 <th style="padding:13px 0 0 15px;">4. 통증이 발생하는 상황</th>
-                <td colspan="1"><input type="radio" name="chest_where2" value="1"> 가슴 앞</td>
-                <td colspan="1"><input type="radio" name="chest_where2" value="2"> 가슴 뒤</td>
-                <td colspan="1"><input type="radio" name="chest_where2" value="3"> 왼쪽 가슴</td>
-                <td colspan="1"><input type="radio" name="chest_where2" value="4"> 오른쪽 가슴</td>
+                <td colspan="1"><input type="radio" name="P4" value="1"> 운동 시</td>
+                <td colspan="1"><input type="radio" name="P4" value="2"> 휴식할 때</td>
+                <td colspan="1"><input type="radio" name="P4" value="3"> 어딘가에 부딪힐 때</td>
+                <td colspan="1"><input type="radio" name="P4" value="4"> 아무 이유 없이</td>
             </tr>
             <tr>
                 <th style="padding:13px 0 0 15px;">5. 통증 강도</th>
-                <td colspan="1"><input type="radio" name="chest_where3" value="1"> 가슴 앞</td>
-                <td colspan="1"><input type="radio" name="chest_where3" value="2"> 가슴 뒤</td>
-                <td colspan="1"><input type="radio" name="chest_where3" value="3"> 왼쪽 가슴</td>
-                <td colspan="1"><input type="radio" name="chest_where3" value="4"> 오른쪽 가슴</td>
+                <td colspan="1"><input type="radio" name="P5" value="1"> 일상 생활 가능</td>
+                <td colspan="1"><input type="radio" name="P5" value="2"> 일상 생활 불편</td>
+                <td colspan="2"><input type="radio" name="P5" value="3"> 일상 생활 불가능</td>
             </tr>
             <tr>
                 <th style="padding:13px 0 0 15px;">6. 통증이 주변 부위로 전파 되나요?</th>
-                <td colspan="1"><input type="radio" name="chest_where4" value="1"> 예</td>
-                <td colspan="3"><input type="radio" name="chest_where4" value="2"> 아니오</td>
+                <td colspan="1"><input type="radio" name="P6" value="1"> 예</td>
+                <td colspan="3"><input type="radio" name="P6" value="2"> 아니오</td>
             </tr>
             <tr>
-                <th style="padding:13px 0 0 15px;">7. 특정 행동 혹은 자세를 취하면 호전되나요?</th>
-                <td colspan="1"><input type="radio" name="chest_where2" value="1"> 가슴 앞</td>
-                <td colspan="1"><input type="radio" name="chest_where2" value="2"> 가슴 뒤</td>
-                <td colspan="2"><input type="radio" name="chest_where2" value="3"> 왼쪽 가슴</td>
+                <th style="padding:13px 0 0 15px;">7. 특정 행동 혹은<br>  자세를 취하면 호전되나요?</th>
+                <td colspan="1"><input type="radio" name="P7" value="1"> 앞으로 기울일 시</td>
+                <td colspan="1"><input type="radio" name="P7" value="2"> 휴식 시</td>
+                <td colspan="2"><input type="radio" name="P7" value="3"> 특정 행동으로<br>  호전되지 않음</td>
             </tr>
             <tr>
                 <th style="padding:13px 0 0 15px;">8. 특이사항</th>
-                <td colspan="1"><input type="radio" name="chest_where2" value="1"> 가슴 앞</td>
-                <td colspan="3"><input type="radio" name="chest_where2" value="2"> 가슴 뒤</td>
+                <td colspan="1"><input type="radio" name="P8" value="1"> 스트레스 받을<br>  때마다 통증 발생</td>
+                <td colspan="1"><input type="radio" name="P8" value="2"> 발한, 어지럼증,<br> 식은 땀 등을 동반</td>
+                <td colspan="2"><input type="radio" name="P8" value="2"> 없음</td>
             </tr>
         </table>
         <br><br>
@@ -85,11 +84,65 @@
                 <th style="padding:13px 0 0 15px;" colspan="4">선택지</th>
             </tr>
             <tr>
-                <th style="padding:13px 0 0 15px;">1. 피로감, 어지럼증, 복통, <br>구토, 발연 등이 동반 되는지</th>
-                <td colspan="1"><input type="radio" name="part" value="1"> 앞 가슴</td>
-                <td colspan="1"><input type="radio" name="part" value="2"> 명치 부근</td>
-                <td colspan="1"><input type="radio" name="part" value="3"> 가슴 근육/뼈</td>
-                <td colspan="1"><input type="radio" name="part" value="4"> 왼쪽 가슴</td>
+                <th style="padding:13px 0 0 15px;">9. 피로감, 어지럼증, 복통, <br>구토, 발연 등이 동반 되나요?</th>
+                <td colspan="1"><input type="radio" name="P9" value="1"> 예</td>
+                <td colspan="2"><input type="radio" name="P9" value="2"> 아니오</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">10. 증상 지속 기간</th>
+                <td colspan="1"><input type="radio" name="P10" value="1"> 수 시간</td>
+                <td colspan="1"><input type="radio" name="P10" value="2"> 수 일</td>
+                <td colspan="1"><input type="radio" name="P10" value="3"> 수 주</td>
+                <td colspan="1"><input type="radio" name="P10" value="4"> 수 개월</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">11. 코 막힘 여부</th>
+                <td colspan="1"><input type="radio" name="P11" value="1"> 막히지 않음</td>
+                <td colspan="1"><input type="radio" name="P11" value="2"> 한쪽만 막힘</td>
+                <td colspan="2"><input type="radio" name="P11" value="3"> 양쪽 다 막힘</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">12. 코 막힘 지속 시간</th>
+                <td colspan="1"><input type="radio" name="P12" value="1"> 계속해서 막힘</td>
+                <td colspan="1"><input type="radio" name="P12" value="2"> 오전에 심하고<br> 오후에 완화</td>
+                <td colspan="2"><input type="radio" name="P12" value="3"> 완화되지 않음</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">13. 재체기도 같이 나오나요?</th>
+                <td colspan="1"><input type="radio" name="P13" value="1"> 예</td>
+                <td colspan="3"><input type="radio" name="P13" value="2"> 아니요</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">14. 목의 통증 강도</th>
+                <td colspan="1"><input type="radio" name="P14" value="1"> 칼칼한 정도</td>
+                <td colspan="1"><input type="radio" name="P14" value="2"> 참을만 하지만 심함</td>
+                <td colspan="2"><input type="radio" name="P14" value="3"> 참기 힘든 고통</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">15. 기침이 동반되나요?</th>
+                <td colspan="1"><input type="radio" name="P15" value="1"> 예</td>
+                <td colspan="3"><input type="radio" name="P15" value="2"> 아니요</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">16. 기침에 피가 동반되나요?</th>
+                <td colspan="1"><input type="radio" name="P16" value="1"> 예</td>
+                <td colspan="3"><input type="radio" name="P16" value="2"> 아니요</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">17. 가래도 있나요?</th>
+                <td colspan="1"><input type="radio" name="P17" value="1"> 예</td>
+                <td colspan="3"><input type="radio" name="P17" value="2"> 아니요</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">18. 가래에 피가 동반되나요?</th>
+                <td colspan="1"><input type="radio" name="P18" value="1"> 예</td>
+                <td colspan="3"><input type="radio" name="P18" value="2"> 아니요</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">19. 숨이 차나요?</th>
+                <td colspan="1"><input type="radio" name="P19" value="1"> 아니요</td>
+                <td colspan="1"><input type="radio" name="P19" value="2"> 참을만 함</td>
+                <td colspan="2"><input type="radio" name="P19" value="3"> 참기 힘듬</td>
             </tr>
         </table>
         <br><br>
@@ -102,11 +155,46 @@
                 <th style="padding:13px 0 0 15px;" colspan="4">선택지</th>
             </tr>
             <tr>
-                <th style="padding:13px 0 0 15px;">1. 통증 위치</th>
-                <td colspan="1"><input type="radio" name="part" value="1"> 앞 가슴</td>
-                <td colspan="1"><input type="radio" name="part" value="2"> 명치 부근</td>
-                <td colspan="1"><input type="radio" name="part" value="3"> 가슴 근육/뼈</td>
-                <td colspan="1"><input type="radio" name="part" value="4"> 왼쪽 가슴</td>
+                <th style="padding:13px 0 0 15px;">20. 통증 위치</th>
+                <td colspan="1"><input type="radio" name="P20" value="1"> 배꼽 아래</td>
+                <td colspan="1"><input type="radio" name="P20" value="2"> 옆구리</td>
+                <td colspan="1"><input type="radio" name="P20" value="3"> 상복부</td>
+                <td colspan="1"><input type="radio" name="P20" value="4"> 다른 곳에서 전파</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">21. 통증 형태</th>
+                <td colspan="1"><input type="radio" name="P21" value="1"> 묵직한 통증</td>
+                <td colspan="1"><input type="radio" name="P21" value="2"> 땡기는 듯한 통증</td>
+                <td colspan="2"><input type="radio" name="P21" value="3"> 찌르는 듯한 통증</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">22. 배를 눌렀을 때 통증이 심해지나요?</th>
+                <td colspan="1"><input type="radio" name="P22" value="1"> 예</td>
+                <td colspan="3"><input type="radio" name="P22" value="2"> 아니요</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">23. 통증 지속 기간</th>
+                <td colspan="1"><input type="radio" name="P23" value="1"> 순간적(30분 이내)</td>
+                <td colspan="1"><input type="radio" name="P23" value="2"> 1시간 이내</td>
+                <td colspan="1"><input type="radio" name="P23" value="3"> 1일 이내</td>
+                <td colspan="1"><input type="radio" name="P23" value="4"> 만성</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">24. 통증 지속 기간</th>
+                <td colspan="1"><input type="radio" name="P24" value="1"> 단발적으로 일주일에<br> 1회 이하</td>
+                <td colspan="1"><input type="radio" name="P24" value="2"> 일주일에 2~3회</td>
+                <td colspan="2"><input type="radio" name="P24" value="3"> 지속적</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">25. 통증 강도</th>
+                <td colspan="1"><input type="radio" name="P25" value="1"> 일상생활 가능</td>
+                <td colspan="1"><input type="radio" name="P25" value="2"> 일상생활 불편</td>
+                <td colspan="2"><input type="radio" name="P25" value="3"> 일상생활 불가능</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">26. 타 증상 (발열, 구토)<br>가 있나요?</th>
+                <td colspan="1"><input type="radio" name="P26" value="1"> 예</td>
+                <td colspan="3"><input type="radio" name="P26" value="2"> 아니요</td>
             </tr>
         </table>
         <br><br>
@@ -119,56 +207,50 @@
                 <th style="padding:13px 0 0 15px;" colspan="4">선택지</th>
             </tr>
             <tr>
-                <th style="padding:13px 0 0 15px;">1. 통증 위치</th>
-                <td colspan="1"><input type="radio" name="part" value="1"> 앞 가슴</td>
-                <td colspan="1"><input type="radio" name="part" value="2"> 명치 부근</td>
-                <td colspan="1"><input type="radio" name="part" value="3"> 가슴 근육/뼈</td>
-                <td colspan="1"><input type="radio" name="part" value="4"> 왼쪽 가슴</td>
+                <th style="padding:13px 0 0 15px;">27. 통증이 얼마나 발생하나요?</th>
+                <td colspan="1"><input type="radio" name="P27" value="1"> 일주일에 1회 이하</td>
+                <td colspan="1"><input type="radio" name="P27" value="2"> 일주일에 한번</td>
+                <td colspan="1"><input type="radio" name="P27" value="3"> 일주일에 2~3회</td>
+                <td colspan="1"><input type="radio" name="P27" value="4"> 일주일에 4~5회</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">28. 통증 위치</th>
+                <td colspan="1"><input type="radio" name="P28" value="1"> 양쪽 관자놀이</td>
+                <td colspan="1"><input type="radio" name="P28" value="2"> 머리 뒤쪽(뒷골)</td>
+                <td colspan="2"><input type="radio" name="P28" value="3"> 전체적으로</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">29. 통증 형태</th>
+                <td colspan="1"><input type="radio" name="P29" value="1"> 조이거나 무거운<br> 느낌의 통증</td>
+                <td colspan="1"><input type="radio" name="P29" value="2"> 쑤시는 듯한 통증</td>
+                <td colspan="2"><input type="radio" name="P29" value="3"> 발작이 일어나는 통증</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">30. 지속 시간</th>
+                <td colspan="1"><input type="radio" name="P30" value="1"> 6시간 이하</td>
+                <td colspan="1"><input type="radio" name="P30" value="2"> 하루 이하</td>
+                <td colspan="1"><input type="radio" name="P30" value="3"> 일주일 이하</td>
+                <td colspan="1"><input type="radio" name="P30" value="4"> 만성</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">31. 통증 강도</th>
+                <td colspan="1"><input type="radio" name="P31" value="1"> 일상생활 가능</td>
+                <td colspan="1"><input type="radio" name="P31" value="2"> 일상생활 불편</td>
+                <td colspan="2"><input type="radio" name="P31" value="3"> 일상생활 불가능</td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">32. 특이사항</th>
+                <td colspan="1"><input type="radio" name="P32" value="1"> 아침보다 저녁에 심함</td>
+                <td colspan="1"><input type="radio" name="P32" value="2"> 수면 장애 동반</td>
+                <td colspan="1"><input type="radio" name="P32" value="3"> 신체 활동(운동 등)에<br> 의해 악화됨</td>
+                <td colspan="1"><input type="radio" name="P32" value="4"> 눈까지 통증 전파</td>
             </tr>
         </table>
         <div class="pull-left">
             <input type="submit" class="btn btn-primary" value="진단하기" />
         </div>
     </form>
-
-    <script>
-        // $(document).ready(function(){
-        //     $("#part_head").click(function(){
-        //         $("#part_chest_show").hide();
-        //         $("#part_resp_show").hide();
-        //         $("#part_stomach_show").hide();
-        //         $("#part_head_show").show(1000);
-        //     });
-        //
-        //     $("#part_chest").click(function(){
-        //         $("#part_resp_show").hide();
-        //         $("#part_stomach_show").hide();
-        //         $("#part_head_show").hide();
-        //         $("#part_chest_show").show(1000);
-        //     });
-        //
-        //     $("#part_resp").click(function(){
-        //         $("#part_chest_show").hide();
-        //         $("#part_stomach_show").hide();
-        //         $("#part_head_show").hide();
-        //         $("#part_resp_show").show(1000);
-        //     });
-        //
-        //     $("#part_stomach").click(function(){
-        //         $("#part_chest_show").hide();
-        //         $("#part_resp_show").hide();
-        //         $("#part_head_show").hide();
-        //         $("#part_stomach_show").show(1000);
-        //     });
-        // });
-        //
-        // function hideFunc(){
-        //     $("#part_head_show").hide();
-        //     $("#part_chest_show").hide();
-        //     $("#part_resp_show").hide();
-        //     $("#part_stomach_show").hide();
-        // }
-    </script>
+    <br><br><br><br><br><br><br><br>
 </div>
 <div th:replace="layout/footer::footer"></div>
 </body>
